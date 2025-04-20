@@ -1,0 +1,548 @@
+/* Base colors */
+:root {
+    --background-color: #e6d7c4;
+    --primary-color-dark: #4b3d1a;
+    --primary-color-light: #c2ac72;
+    --secondary-color: #716332;
+    --text-color: #4b3d1a;
+}
+
+/* Reset and base styles */
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serifs;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color-dark);
+    color: var(--primary-color-light);
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo {
+    height: 50px;
+}
+
+.shop-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header-center form {
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    padding: 0.4rem 0.6rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    width: 250px;
+    max-width: 80vw;
+}
+
+#search-input:focus {
+    outline: 2px solid var(--primary-color-light);
+}
+
+.header-center button {
+    background-color: var(--secondary-color);
+    border: none;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-icon {
+    height: 20px;
+    width: 20px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-right button {
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--primary-color-light);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.header-right button:hover {
+    background-color: var(--primary-color-light);
+    color: var(--primary-color-dark);
+}
+
+.cart-icon {
+    height: 30px;
+    width: 30px;
+}
+
+/* Navigation styles */
+nav {
+    background-color: var(--secondary-color);
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.nav-list li a {
+    color: var(--primary-color-light);
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 600;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.nav-list li a:hover,
+.nav-list li a[aria-current="page"] {
+    background-color: var(--primary-color-dark);
+}
+
+/* Banner styles */
+.banner {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin: 1rem auto;
+}
+
+.banner-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(75, 61, 26, 0.7);
+    border: none;
+    color: var(--primary-color-light);
+    font-size: 2rem;
+    padding: 0 0.5rem;
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.banner-control:hover {
+    background-color: rgba(75, 61, 26, 0.9);
+}
+
+.banner-control.prev {
+    left: 10px;
+}
+
+.banner-control.next {
+    right: 10px;
+}
+
+.banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+}
+
+.banner-image.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Main content */
+main {
+    max-width: 1200px;
+    margin: 2rem auto 3rem auto;
+    padding: 0 1rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin: 0.5rem;
+    flex: 1 1 calc(25% - 1rem);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--primary-color-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-text {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.btn {
+    background-color: var(--secondary-color);
+    color: var(--primary-color-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--primary-color-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color-dark);
+    color: var(--primary-color-light);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+/* Responsive adjustments for cards */
+@media (max-width: 992px) {
+    .card {
+        flex: 1 1 calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        flex: 1 1 100%;
+    }
+}
+
+h2 {
+    color: var(--primary-color-dark);
+    margin-bottom: 1rem;
+}
+
+/* Product list */
+.product-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.product-list li {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.product-list img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.product-list h3 {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--primary-color-dark);
+}
+
+.product-list p {
+    font-size: 0.9rem;
+    color: #555;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.product-list button {
+    background-color: var(--secondary-color);
+    color: var(--primary-color-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.product-list button:hover {
+    background-color: var(--primary-color-dark);
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--primary-color-dark);
+    color: var(--primary-color-light);
+    padding: 1rem 1rem 2rem 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    gap: 1rem;
+    border-bottom: 1px solid var(--primary-color-light);
+    padding-bottom: 1rem;
+}
+
+.footer-column {
+    flex: 1 1 250px;
+    text-align: left;
+}
+
+.footer-column h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.footer-column {
+    flex: 1 1 250px;
+    text-align: left;
+}
+
+.footer-column h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .header-center {
+        order: 3;
+        width: 100%;
+    }
+
+    .header-left, .header-right {
+        flex: 1 1 100%;
+        justify-content: center;
+    }
+
+    nav .nav-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(75, 61, 26, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    position: relative;
+    color: var(--primary-color-dark);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--primary-color-dark);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form label {
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    color: var(--primary-color-dark);
+}
+
+.auth-form input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: var(--background-color);
+    color: var(--primary-color-dark);
+}
+
+.auth-form input:focus {
+    outline: 2px solid var(--primary-color-light);
+    background-color: white;
+    color: var(--primary-color-dark);
+}
+
+.auth-form .btn {
+    margin-top: 0.5rem;
+    background-color: var(--secondary-color);
+    color: var(--primary-color-light);
+    border: none;
+}
+
+.auth-form .btn:hover {
+    background-color: var(--primary-color-light);
+    color: var(--primary-color-dark);
+}
+
+.form-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.form-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.form-links a:hover {
+    text-decoration: underline;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color-dark);
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+}
+
+
